@@ -3,7 +3,7 @@
 import SwiftUI
 
 struct CharactersListView: View {
-    @StateObject var vm = ViewModel()
+    @StateObject var vm = ViewModel(networkService: NetworkService())
     
     var body: some View {
         ScrollView(showsIndicators: false) {
