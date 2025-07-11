@@ -79,5 +79,5 @@ struct CharactersListView: View {
 }
 
 #Preview {
-    HomeView()
+    CharactersListView()
 }
