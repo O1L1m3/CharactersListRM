@@ -3,20 +3,17 @@
 import SwiftUI
 
 struct FilterView: View {
-    @Binding var selectedStatus: String
-    @Binding var selectedGender: String
+    @Binding var selectedStatus: FilterEnums.StatusFilter
+    @Binding var selectedGender: FilterEnums.GenderFilter
     @Binding var isShowingFilterView: Bool
-
-    let statuses = ["All", "Alive", "Dead", "unknown"]
-    let genders = ["All", "Male", "Female", "Genderless", "unknown"]
 
     var body: some View {
         NavigationStack {
             Form {
                 Section("STATUS") {
                     Picker("Select Status", selection: $selectedStatus) {
-                        ForEach(statuses, id: \.self) { status in
-                            Text(status).tag(status)
+                        ForEach(FilterEnums.StatusFilter.allCases) { status in
+                            Text(status.rawValue).tag(status)
                         }
                     }
                     .pickerStyle(.menu)
@@ -24,8 +21,8 @@ struct FilterView: View {
 
                 Section("GENDER") {
                     Picker("Select Gender", selection: $selectedGender) {
-                        ForEach(genders, id: \.self) { gender in
-                            Text(gender).tag(gender)
+                        ForEach(FilterEnums.GenderFilter.allCases) { gender in
+                            Text(gender.rawValue).tag(gender)
                         }
                     }
                     .pickerStyle(.menu)
@@ -43,3 +40,4 @@ struct FilterView: View {
         }
     }
 }
+
