@@ -2,11 +2,11 @@
 
 import Foundation
 
-protocol NetworkService {
+protocol INetworkService {
     func fetchData(species: String, gender: String, completion: @escaping (ResultRM) -> Void)
 }
 
-struct NetworkLayer: NetworkService {
+struct NetworkService: INetworkService {
 
     func fetchData(species: String, gender: String, completion: @escaping (ResultRM) -> Void) {
         var urlComponents = URLComponents()
