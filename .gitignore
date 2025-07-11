@@ -1,0 +1,9 @@
+# Xcode files
+.DS_Store
+*.xcodeproj/xcuserdata/
+*.xcuserdatad/
+xcuserdata/
+DerivedData/
+.build/
+.swiftpm/
+*.xcuserdatad/UserInterfaceState.xcuserstate
