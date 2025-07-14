@@ -38,6 +38,7 @@ extension String {
             case "Robot": return "Робот"
             case "Cronenberg": return "Кроненберг"
             case "Humanoid": return "Гуманоид"
+            case "Animal": return "Животное"
             case "unknown": return "Неизвестно"
             default: return self
             }
