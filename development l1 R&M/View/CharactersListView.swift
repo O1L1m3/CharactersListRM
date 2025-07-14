@@ -4,26 +4,28 @@ import SwiftUI
 
 struct CharactersListView: View {
     @StateObject var vm = ViewModel(networkService: NetworkService())
+    @StateObject var favoritesManager = FavoritesManager()
+
     @State private var showingFilterSheet = false
+    @State private var showingFavoritesSheet = false
     @State private var currentSelectedStatus: FilterEnums.StatusFilter = .all
     @State private var currentSelectedGender: FilterEnums.GenderFilter = .all
     
     var body: some View {
-        VStack(spacing: 0) {
-            CharactersListHeader(showingFilterSheet: $showingFilterSheet)
+        VStack(alignment: .leading,spacing: 0) {
+            CharactersListHeader(showingFilterSheet: $showingFilterSheet, showingFavoritesSheet: $showingFavoritesSheet)
             
             ScrollView(showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 15) {
                     LazyVStack(alignment: .leading, spacing: 15) {
-                        ForEach(vm.character, id: \.self) { character in
-                            CharacterRowView(character: character)
+                        ForEach(vm.character, id: \.id) { character in
+                            CharacterRowView(character: character, favoritesManager: favoritesManager)
                         }
                     }
                 }
                 .padding()
             }
             .background(.bg)
-
         }
         .onAppear {
             vm.getCharacter(status: currentSelectedStatus, gender: currentSelectedGender)
@@ -33,6 +35,9 @@ struct CharactersListView: View {
                 .onDisappear {
                     vm.getCharacter(status: currentSelectedStatus, gender: currentSelectedGender)
                 }
+        }
+        .sheet(isPresented: $showingFavoritesSheet) {
+            FavoriteCharactersListView(favoritesManager: favoritesManager)
         }
     }
 }

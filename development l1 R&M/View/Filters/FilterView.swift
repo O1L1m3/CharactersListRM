@@ -10,8 +10,8 @@ struct FilterView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section("STATUS") {
-                    Picker("Select Status", selection: $selectedStatus) {
+                Section("СТАТУС") {
+                    Picker("Выберите статус", selection: $selectedStatus) {
                         ForEach(FilterEnums.StatusFilter.allCases) { status in
                             Text(status.rawValue).tag(status)
                         }
@@ -19,8 +19,8 @@ struct FilterView: View {
                     .pickerStyle(.menu)
                 }
 
-                Section("GENDER") {
-                    Picker("Select Gender", selection: $selectedGender) {
+                Section("ГЕНДЕР") {
+                    Picker("Выберите гендер", selection: $selectedGender) {
                         ForEach(FilterEnums.GenderFilter.allCases) { gender in
                             Text(gender.rawValue).tag(gender)
                         }
@@ -28,11 +28,17 @@ struct FilterView: View {
                     .pickerStyle(.menu)
                 }
             }
-            .navigationTitle("Filters")
+            .navigationTitle("Фильтры")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Очистить") {
+                        selectedStatus = .all
+                        selectedGender = .all
+                    }
+                }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Apply") {
+                    Button("Применить") {
                         isShowingFilterView = false
                     }
                 }
@@ -40,4 +46,3 @@ struct FilterView: View {
         }
     }
 }
-
