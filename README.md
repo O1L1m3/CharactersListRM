@@ -67,7 +67,7 @@
 3.  **Откройте проект в Xcode:**
 
     ```bash
-    open development_l1_R_M.xcodeproj
+    open "development l1 R&M.xcodeproj"
     ```
 4.  **Соберите и запустите:** Выберите желаемый симулятор iOS (например, iPhone 16 Pro) и нажмите кнопку "Run" (или используйте сочетание клавиш `⌘R`).
 
