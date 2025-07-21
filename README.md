@@ -57,7 +57,7 @@
 1.  **Клонируйте репозиторий:**
 
     ```bash
-    git clone [https://github.com/your-username/rick-and-morty-characters-app.git](https://github.com/your-username/rick-and-morty-characters-app.git)
+    git clone [git clone https://github.com/O1L1m3/CharactersListRM.git)
     ```
 2.  **Перейдите в директорию проекта:**
 
