@@ -57,7 +57,7 @@
 1.  **Клонируйте репозиторий:**
 
     ```bash
-    git clone [git clone https://github.com/O1L1m3/CharactersListRM.git)
+    git clone git clone https://github.com/O1L1m3/CharactersListRM.git
     ```
 2.  **Перейдите в директорию проекта:**
 
